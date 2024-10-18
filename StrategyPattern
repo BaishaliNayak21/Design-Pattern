@@ -17,37 +17,37 @@ class TravelByPlane(ItravelBehaviour):
     def travel(self):
         print("Travel by Plane")
 
-class IEatBehaviour:
+class IShoppingBehaviour:
     @abstractmethod
-    def eat():
+    def shop():
         pass
 
-class EatMacd(IEatBehaviour):
-    def eat(self):
-        print("Eat chicken burger")
+class shopGadget(IShoppingBehaviour):
+    def shop(self):
+        print("Shops xbox")
 
-class EatDominoes(IEatBehaviour):
-    def eat(self):
-        print("Eat newyork style Pizza")
+class shopDress(IShoppingBehaviour):
+    def shop(self):
+        print("Shops dresses")
 
-class EatTacoBell(IEatBehaviour):
-    def eat(self):
-        print("Eat Nacho fry")
+class shopHomeDecor(IShoppingBehaviour):
+    def shop(self):
+        print("Shops Home decor")
 
 class Person():
-    def __init__(self, tb: ItravelBehaviour, eb: IEatBehaviour):
+    def __init__(self, tb: ItravelBehaviour, sb: IShoppingBehaviour):
         self.tb = tb
-        self.eb = eb
+        self.sb = sb
     def perform_travel(self):
         self.tb.travel()
         
-    def perform_eat(self):
-        self.eb.eat()
+    def perform_shopping(self):
+        self.sb.shop()
 
 class Rishab(Person):
     
     def __init__(self):
-        super().__init__(TravelByPlane(), EatMacd())
+        super().__init__(TravelByPlane(), shopGadget())
         
     def buy_stock(self):
         print("Rishab loves to buy apple stock")
@@ -55,19 +55,19 @@ class Rishab(Person):
 class Baishali(Person):
     
     def __init__(self):
-        super().__init__(TravelByTrain(), EatTacoBell())
+        super().__init__(TravelByTrain(), shopDress())
     def buy_gold(self):
         print("Baishali loves to buy gold")
 
 if __name__ == "__main__":
     baishali = Baishali()
     baishali.perform_travel()
-    baishali.perform_eat()
+    baishali.perform_shopping()
     baishali.buy_gold()
     
     rishab = Rishab()
     rishab.perform_travel()
-    rishab.perform_eat()
+    rishab.perform_shopping()
     rishab.buy_stock()
     
     
