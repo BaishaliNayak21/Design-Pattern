@@ -49,26 +49,26 @@ class Rishab(Person):
     def __init__(self):
         super().__init__(TravelByPlane(), shopGadget())
         
-    def buy_stock(self):
-        print("Rishab loves to buy apple stock")
+    def saves_in_stock(self):
+        print("Rishab saves in apple stock")
     
 class Baishali(Person):
     
     def __init__(self):
         super().__init__(TravelByTrain(), shopDress())
-    def buy_gold(self):
-        print("Baishali loves to buy gold")
+    def saves_in_gold(self):
+        print("Baishali saves in gold")
 
 if __name__ == "__main__":
     baishali = Baishali()
     baishali.perform_travel()
     baishali.perform_shopping()
-    baishali.buy_gold()
+    baishali.saves_in_gold()
     
     rishab = Rishab()
     rishab.perform_travel()
     rishab.perform_shopping()
-    rishab.buy_stock()
+    rishab.saves_in_stock()
     
     
         
