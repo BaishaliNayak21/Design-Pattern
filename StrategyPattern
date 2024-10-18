@@ -1,0 +1,59 @@
+from abc import ABC, abstractmethod
+
+class IFlyBehaviour:
+    def __init__(self):
+        pass
+    @abstractmethod
+    def fly():
+        pass
+    
+class FlyWithWings(IFlyBehaviour):
+    def fly(self):
+        print("I fly with wings")
+class FlyNoFly(IFlyBehaviour):
+    def fly(self):
+        print("I can't fly")
+        
+class IQuackBehaviour:
+    def __init__(self):
+        pass
+    @abstractmethod
+    def quack():
+        pass
+
+class LoudQuack(IQuackBehaviour):
+    def quack(self):
+        print("QUACK QUACK")
+        
+class SilentQuack(IQuackBehaviour):
+    def quack(self):
+        print("quack")
+
+class Duck():
+    def __init__(self, fb: IFlyBehaviour, qb: IQuackBehaviour):
+        self.fb = fb
+        self.qb = qb
+    def perform_fly(self):
+        self.fb.fly()
+    def perform_quack(self):
+        self.qb.quack()
+    def perform_swim(self):
+        print("Ducks can swim")
+        
+class MallardDuck(Duck):
+    def __init__(self):
+        super().__init__(FlyWithWings(), LoudQuack())
+    
+    def display(self):
+        print("I'm a Mallard Duck")
+if __name__ == "__main__":
+    mallard = MallardDuck()
+    mallard.display()
+    mallard.perform_fly()
+    mallard.perform_quack()
+    mallard.perform_swim()
+    
+    
+
+
+
