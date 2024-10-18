@@ -1,2 +1,3 @@
 Strategy Pattern : use verb(verb is the activity). Avoid confusing with inherritance.
-![image](https://github.com/user-attachments/assets/7724e4c2-51ff-4f18-ba81-0acc269699c8)
+![image](https://github.com/user-attachments/assets/a4625921-6fa3-4681-9e28-e601928ce67e)
+
