@@ -49,8 +49,6 @@ class Rishab(Person):
     def __init__(self):
         super().__init__(TravelByPlane(), shopGadget())
         
-    def saves_in_stock(self):
-        print("Rishab saves in apple stock")
     
 class Baishali(Person):
     
@@ -68,7 +66,7 @@ if __name__ == "__main__":
     rishab = Rishab()
     rishab.perform_travel()
     rishab.perform_shopping()
-    rishab.saves_in_stock()
+    
     
     
         
