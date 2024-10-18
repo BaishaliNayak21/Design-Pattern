@@ -1,58 +1,80 @@
 from abc import ABC, abstractmethod
 
-class IFlyBehaviour:
-    def __init__(self):
-        pass
+class ItravelBehaviour:
     @abstractmethod
-    def fly():
+    def travel():
         pass
     
-class FlyWithWings(IFlyBehaviour):
-    def fly(self):
-        print("I fly with wings")
-class FlyNoFly(IFlyBehaviour):
-    def fly(self):
-        print("I can't fly")
-        
-class IQuackBehaviour:
-    def __init__(self):
-        pass
+class TravelByTrain(ItravelBehaviour):
+    def travel(self):
+        print("Travel by Train")
+
+class TravelByBus(ItravelBehaviour):
+    def travel(self):
+        print("Travel by Bus")
+
+class TravelByPlane(ItravelBehaviour):
+    def travel(self):
+        print("Travel by Plane")
+
+class IEatBehaviour:
     @abstractmethod
-    def quack():
+    def eat():
         pass
 
-class LoudQuack(IQuackBehaviour):
-    def quack(self):
-        print("QUACK QUACK")
-        
-class SilentQuack(IQuackBehaviour):
-    def quack(self):
-        print("quack")
+class EatMacd(IEatBehaviour):
+    def eat(self):
+        print("Eat chicken burger")
 
-class Duck():
-    def __init__(self, fb: IFlyBehaviour, qb: IQuackBehaviour):
-        self.fb = fb
-        self.qb = qb
-    def perform_fly(self):
-        self.fb.fly()
-    def perform_quack(self):
-        self.qb.quack()
-    def perform_swim(self):
-        print("Ducks can swim")
+class EatDominoes(IEatBehaviour):
+    def eat(self):
+        print("Eat newyork style Pizza")
+
+class EatTacoBell(IEatBehaviour):
+    def eat(self):
+        print("Eat Nacho fry")
+
+class Person():
+    def __init__(self, tb: ItravelBehaviour, eb: IEatBehaviour):
+        self.tb = tb
+        self.eb = eb
+    def perform_travel(self):
+        self.tb.travel()
         
-class MallardDuck(Duck):
-    def __init__(self):
-        super().__init__(FlyWithWings(), LoudQuack())
+    def perform_eat(self):
+        self.eb.eat()
+
+class Rishab(Person):
     
-    def display(self):
-        print("I'm a Mallard Duck")
+    def __init__(self):
+        super().__init__(TravelByPlane(), EatMacd())
+        
+    def buy_stock(self):
+        print("Rishab loves to buy apple stock")
+    
+class Baishali(Person):
+    
+    def __init__(self):
+        super().__init__(TravelByTrain(), EatTacoBell())
+    def buy_gold(self):
+        print("Baishali loves to buy gold")
+
 if __name__ == "__main__":
-    mallard = MallardDuck()
-    mallard.display()
-    mallard.perform_fly()
-    mallard.perform_quack()
-    mallard.perform_swim()
+    baishali = Baishali()
+    baishali.perform_travel()
+    baishali.perform_eat()
+    baishali.buy_gold()
     
+    rishab = Rishab()
+    rishab.perform_travel()
+    rishab.perform_eat()
+    rishab.buy_stock()
+    
+    
+        
+    
+        
+
     
 
 
